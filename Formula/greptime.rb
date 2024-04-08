@@ -6,10 +6,10 @@ class Greptime < Formula
 
   if Hardware::CPU.intel?
     url "https://github.com/GreptimeTeam/greptimedb/releases/download/v0.7.2/greptime-darwin-amd64-v0.7.2.tar.gz"
-    sha256 "a535e519700cfa547620b6ef99aeaebd91f863d4ba6dd73ebfb36a79133133b8"
+    sha256 "b196b537f87fdddd0c737155e7065211c5a06c2621fa591a959c75717d3617d9"
   elsif Hardware::CPU.arm?
     url "https://github.com/GreptimeTeam/greptimedb/releases/download/v0.7.2/greptime-darwin-arm64-v0.7.2.tar.gz"
-    sha256 "d34c813ea3204d97b58ed973faa786f7c42df510291c7a17705e70182efe79e7"
+    sha256 "7ba985431292c5bc5b91e6cbd8ee3f420ea41c465f77884f1192ff56731ad350"
   end
 
   def install
