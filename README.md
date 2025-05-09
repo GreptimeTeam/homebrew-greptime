@@ -30,7 +30,6 @@ Run GreptimeDB in standalone mode with:
 
 ```bash
 greptime standalone start \
-  --data-home ./greptimedb_data \
   --http-addr 0.0.0.0:4000 \
   --rpc-bind-addr 0.0.0.0:4001 \
   --mysql-addr 0.0.0.0:4002 \
