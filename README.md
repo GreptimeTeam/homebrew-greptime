@@ -19,7 +19,7 @@ brew install gtctl
 
 To upgrade existing installations to the latest version:
 
-```base
+```bash
 brew upgrade greptime
 brew upgrade gtctl
 ```
