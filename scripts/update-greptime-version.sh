@@ -2,8 +2,13 @@
 
 set -e
 
-VERSION=${VERSION}
+VERSION="$1"
 FORMULA_FILE="./Formula/greptime.rb"
+
+if [ -z "$VERSION" ]; then
+  echo "Error: Missing required arguments 'VERSION'."
+  exit 1
+fi
 
 echo "Fetching download URLs and sha256sum for version $VERSION..."
 
