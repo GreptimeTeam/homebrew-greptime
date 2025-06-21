@@ -12,23 +12,23 @@ fi
 
 update() {
   local file="$1"
-  local pattern="$2"
+  local search="$2"
   local replacement="$3"
   local range="${4:-}"
 
   case "$(uname -s)" in
     Darwin)
       if [ -z "$range" ]; then
-        sed -i '' -E "s|${pattern}|${replacement}|g" "$file"
+        sed -i '' -E "s|${search}|${replacement}|g" "$file"
       else
-        sed -i '' -E "${range}s|${pattern}|${replacement}|g" "$file"
+        sed -i '' -E "${range}s|${search}|${replacement}|g" "$file"
       fi
       ;;
     Linux)
       if [ -z "$range" ]; then
-        sed -i -E "s|${pattern}|${replacement}|g" "$file"
+        sed -i -E "s|${search}|${replacement}|g" "$file"
       else
-        sed -i -E "${range}s|${pattern}|${replacement}|g" "$file"
+        sed -i -E "${range}s|${search}|${replacement}|g" "$file"
       fi
       ;;
     *)
