@@ -10,6 +10,20 @@ if [ -z "$VERSION" ]; then
   exit 1
 fi
 
+OS_TYPE=$(uname -s)
+case $OS_TYPE in
+  Darwin)
+    SED="sed -i ''"
+    ;;
+  Linux)
+    SED="sed -i"
+    ;;
+  *)
+    echo "Error: Unsupported operating system: $OS_TYPE"
+    exit 1
+    ;;
+esac
+
 echo "Fetching download URLs and sha256sum for version $VERSION..."
 
 # Intel URL
@@ -35,10 +49,10 @@ echo "Intel sha256sum: $INTEL_SHA"
 echo "ARM sha256sum: $ARM_SHA"
 
 echo "Updating $FORMULA_FILE..."
-sed -i '' -e "s/version \".*\"/version \"${VERSION}\"/" $FORMULA_FILE
-sed -i '' -e "s|url \".*-amd64-.*\"|url \"${INTEL_URL}\"|" $FORMULA_FILE
-sed -i '' -e "s|url \".*-arm64-.*\"|url \"${ARM_URL}\"|" $FORMULA_FILE
-sed -i '' "/if Hardware::CPU.intel?/,/sha256/ s/sha256 \".*\"/sha256 \"${INTEL_SHA}\"/" $FORMULA_FILE
-sed -i '' "/elsif Hardware::CPU.arm?/,/sha256/ s/sha256 \".*\"/sha256 \"${ARM_SHA}\"/" $FORMULA_FILE
+$SED -e "s/version \".*\"/version \"${VERSION}\"/" $FORMULA_FILE
+$SED -e "s|url \".*-amd64-.*\"|url \"${INTEL_URL}\"|" $FORMULA_FILE
+$SED -e "s|url \".*-arm64-.*\"|url \"${ARM_URL}\"|" $FORMULA_FILE
+$SED "/if Hardware::CPU.intel?/,/sha256/ s/sha256 \".*\"/sha256 \"${INTEL_SHA}\"/" $FORMULA_FILE
+$SED "/elsif Hardware::CPU.arm?/,/sha256/ s/sha256 \".*\"/sha256 \"${ARM_SHA}\"/" $FORMULA_FILE
 
 echo "Update complete!"
