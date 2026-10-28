@@ -1,15 +1,15 @@
 class Greptime < Formula
   desc "An open-source, cloud-native, distributed time-series database with PromQL/SQL/Python supported."
   homepage "https://github.com/GreptimeTeam/greptimedb"
-  version "v1.2.1"
+  version "v1.3.0"
   license "Apache-2.0"
 
   if Hardware::CPU.intel?
-    url "https://github.com/GreptimeTeam/greptimedb/releases/download/v1.2.1/greptime-darwin-amd64-v1.2.1.tar.gz"
-    sha256 "2911f9f7cfcfa47e405db82e96358d7238b2fe924cff2b971413dc7097eb0c8a"
+    url "https://github.com/GreptimeTeam/greptimedb/releases/download/v1.3.0/greptime-darwin-amd64-v1.3.0.tar.gz"
+    sha256 "cc192e891bec2fb786c29fed4c9a56c636e87a584b4b7c30b831d69fe7b4d881"
   elsif Hardware::CPU.arm?
-    url "https://github.com/GreptimeTeam/greptimedb/releases/download/v1.2.1/greptime-darwin-arm64-v1.2.1.tar.gz"
-    sha256 "1b76a689541cbb0f30760d217bf27f17d467178db57c101aa873f874382baa81"
+    url "https://github.com/GreptimeTeam/greptimedb/releases/download/v1.3.0/greptime-darwin-arm64-v1.3.0.tar.gz"
+    sha256 "86f9e9b1f261262f5b29b5d91c8016a04660f2bdc55b9df186a8148f44506d80"
   end
 
   def install
